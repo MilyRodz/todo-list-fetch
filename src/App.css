@@ -1,38 +1,75 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.center-content {
+    align-items: center;
+    width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todos-h1 {
+    color: gray;
+    text-align: center;
+    font-size: 100px;
+    font-weight: 100;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* .conditional-message {
+    text-align: center;
+} */
+
+.task-area {
+    width: 100%;
+    font-size: 30px;
+    border-radius: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.task-list {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    left: 0;
+    border-radius: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.delete-button {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    color: transparent;
+}
+
+.button-appear:hover .delete-button{ 
+    color: red;
+}
+
+li{
+    color: rgb(182, 179, 179));
+}
+
+.input-outline:focus, .input-outline:active{
+    outline: none;
+}
+
+.delete-all-button{
+    color: rgb(138, 137, 137);
+    background-color: transparent;
+    border: none;
+    margin-top: 60px;
+}
+
+.delete-all-button:hover{
+    color: red;
+}
+
+.paper {
+    background: #fff;
+    box-shadow:
+      0 1px 1px rgba(0,0,0,0.15),
+      0 10px 0 -5px #eee,
+      0 10px 1px -4px rgba(0,0,0,0.15),
+      0 20px 0 -10px #eee,
+      0 20px 1px -9px rgba(0,0,0,0.15);
+      padding: 40px;
 }
