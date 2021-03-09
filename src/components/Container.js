@@ -41,19 +41,15 @@ const Container = () => {
     } 
 
     const updateTasks = async (listTask) => {
-      // una vez termine el fetch y reciba la respuesta, esta respuesta se asignará a la variable response.
+    
       let response = await fetch(`https://assets.breatheco.de/apis/fake/todos/user/${user}`, {
           method: 'PUT', 
           headers: {
             'Content-Type': 'application/json'            
           },                    
-          body: JSON.stringify(listTask) // request en formato json
+          body: JSON.stringify(listTask) 
         });
-        
-        // si la respuesta que viene del servidor en el atributo .ok  === 'true', entonces va a ejecutar la loadTasks(), el cual manda a llamar al servicio GET,
-        // actualizando el state con el nuevo listado que viene de la base de datos, 
-        // esto va a hacer que los componentes se vuelvan a cargar pero con los nuevos datos del state.
-        // en el caso que la respuesta ok === false, entonces no va a hacer nada, ya que la tarea no requiere manejo de errores.
+      
         if(response.ok){
           console.log("response update tasks ok");
             const data = await response.json();
@@ -72,7 +68,6 @@ const Container = () => {
         }
     }
 
-    // función que llama a la api que crea un usuario y al mismo crea una task de ejemplo.
     const createNewUser = async () => { 
         let response = await fetch(`https://assets.breatheco.de/apis/fake/todos/user/${user}`, {
           method: 'POST', 
@@ -88,11 +83,7 @@ const Container = () => {
             console.log(data);
         }  
     }  
- 
-  /*
-    función que llama al servicio que trae todos los items. y una vez la respuesta está OK === true, 
-    entonces actualiza el state con el nuevo listado que viene directamente de la base de datos. 
-  */ 
+
     const loadTasks = async () => {    
         let response = await fetch(`https://assets.breatheco.de/apis/fake/todos/user/${user}`, {
           method: 'GET', 
@@ -137,21 +128,15 @@ const Container = () => {
     }, []);
  
 
-    // This is a conditional message
-    // const title = task.list.length === 0 ? 'There are no tasks' : 'Add new tasks';
- 
     return( 
         <Fragment>
             <div className=" container center-content">
                 <div className="">  
-                    <h1 className="todos-h1" >todos</h1>
-                    {/* <h4 className="conditional-message">{title}</h4> */}
-                    
+                    <h1 className="todos-h1" >todos</h1>                    
                         <TodoForm 
                             newItem={task.newItem}
                             handleEnter={handleEnter} 
                             updateInput={updateInput}  
-                            // cleanTodos={cleanTodos}
                         />
                 </div>
                 <div className=""> 
